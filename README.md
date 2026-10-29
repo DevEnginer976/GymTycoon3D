@@ -1,48 +1,52 @@
-# GYM TYCOON 3D
+# GYM TYCOON 3D — Fitness Empire
 
-Juego de gestión y exploración 3D para navegador. Construye tu gimnasio, compra máquinas, atrae miembros y aumenta tu reputación.
-
-## Cómo jugar
-- **W, A, S, D**: moverte.
-- **Ratón**: mirar alrededor (haz clic en el mundo para capturar el ratón).
-- **E**: interactuar con una máquina o socio.
-- **B**: abrir la tienda.
-- **M**: hacer una campaña publicitaria (cuesta $100).
-- **C**: limpiar el gimnasio.
-- **Shift**: correr.
-- **Esc**: liberar el ratón / cerrar la captura.
+Juego de gestión y exploración 3D en primera persona, pensado para navegador y GitHub Pages.
 
 ## Características
-- Entorno 3D en primera persona con iluminación, sombras, equipamiento y socios.
-- Economía del gimnasio: dinero, miembros, ingresos, reputación, niveles y experiencia.
-- Tienda con 9 tipos de equipamiento.
-- Campañas publicitarias, limpieza y objetivos progresivos.
-- Guardado automático y manual en el navegador con `localStorage`.
-- Interfaz adaptable a pantallas pequeñas.
-- No requiere servidor backend.
+- Gimnasio 3D con recepción, vestuarios/taquillas, espejos, ventanas, iluminación y sombras.
+- Controles de teclado y ratón con captura de puntero.
+- NPCs/socios que se desplazan por el gimnasio.
+- Tienda con 12 elementos de fuerza, cardio y comodidad.
+- Dinero, socios, reputación, niveles, experiencia, satisfacción, limpieza y energía.
+- Campañas de marketing, limpieza, objetivos, misiones, empleados y salarios.
+- Mini mapa en pantalla y mapa ampliado.
+- Interacciones con socios y equipamiento.
+- Guardado automático y manual en el navegador.
+- Interfaz adaptable a diferentes tamaños de pantalla.
 
-## Ejecutarlo localmente
-Como usa módulos ES y Three.js desde CDN, no abras `index.html` directamente como `file://`.
-En la carpeta del proyecto ejecuta uno de estos comandos:
+## Controles
+- WASD: movimiento
+- Ratón: mirar alrededor
+- Shift: correr
+- E: interactuar
+- B: tienda
+- N: mapa grande
+- J: misiones
+- V: alternar vista
+- M: publicidad
+- C: limpiar
+- Esc: pausar / liberar ratón
 
-### Python
+Haz clic en el escenario para capturar el ratón. En el menú de pausa puedes continuar, guardar y abrir los controles.
+
+## Ejecutar localmente
+Este proyecto usa módulos ES y Three.js desde CDN, así que no abras el archivo con `file://`.
+
+En la carpeta del proyecto:
 ```bash
 python -m http.server 8000
 ```
-Luego visita `http://localhost:8000`.
+Después abre http://localhost:8000.
 
-### VS Code
-Usa la extensión **Live Server** y pulsa **Go Live**.
+También puedes usar la extensión Live Server en Visual Studio Code.
 
-## Publicarlo en GitHub Pages
-1. Crea un repositorio público en GitHub, por ejemplo `gym-tycoon-3d`.
-2. Sube `index.html`, `styles.css`, `game.js` y este `README.md` a la raíz del repositorio.
-3. En el repositorio abre **Settings → Pages**.
-4. En **Build and deployment**, selecciona **Deploy from a branch**.
-5. Elige la rama `main` y la carpeta `/(root)`, y pulsa **Save**.
-6. Espera a que termine el despliegue. Tu juego quedará en `https://TU-USUARIO.github.io/gym-tycoon-3d/`.
+## Publicar en GitHub Pages
+1. Crea un repositorio público llamado `GymTycoon3D`.
+2. Sube `index.html`, `styles.css`, `game.js` y `README.md` a la raíz.
+3. Ve a Settings → Pages.
+4. Selecciona Deploy from a branch, rama `main`, carpeta `/ (root)`.
+5. Guarda y espera el despliegue.
+6. URL: `https://TU-USUARIO.github.io/GymTycoon3D/`
 
-## Notas
-- Necesita conexión a internet para cargar Three.js y Google Fonts desde sus CDN.
-- El progreso se guarda en el navegador y dispositivo en el que juegas; no se sincroniza entre dispositivos.
-- Este es un prototipo jugable ampliable. Las mecánicas económicas están simplificadas y pueden balancearse editando `game.js`.
+## Nota
+Three.js y las fuentes se cargan desde CDN, por lo que se necesita conexión a Internet. El progreso se guarda localmente en el navegador/dispositivo. Es un prototipo ampliado, no un juego comercial terminado; los NPC y la economía son sistemas simplificados y ampliables.

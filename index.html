@@ -1,91 +1,64 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#111827">
-  <title>GYM TYCOON 3D</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0f1d"><title>GYM TYCOON 3D — Fitness Empire</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="loading"><div class="loader"></div><h1>GYM TYCOON 3D</h1><p>Preparando tu gimnasio...</p></div>
-  <div id="game">
-    <header class="topbar">
-      <div class="brand"><span class="brand-icon">▰</span><div><strong>GYM TYCOON</strong><small>CONSTRUYE TU IMPERIO</small></div></div>
-      <div class="stats">
-        <div class="stat"><span>DINERO</span><b id="money">$500</b></div>
-        <div class="stat"><span>MIEMBROS</span><b id="members">0</b></div>
-        <div class="stat"><span>REPUTACIÓN</span><b id="rep">★ 1</b></div>
-        <div class="stat"><span>INGRESOS / DÍA</span><b id="income">$0</b></div>
-      </div>
-      <button id="menuBtn" class="icon-btn" title="Menú">☰</button>
-    </header>
-
-    <aside class="left-panel glass">
-      <div class="panel-heading"><div><small>ADMINISTRACIÓN</small><h2>Tu gimnasio</h2></div><span class="pulse"></span></div>
-      <div class="level-row"><span>Nivel del gimnasio</span><b id="level">1</b></div>
-      <div class="progress"><div id="xpBar"></div></div>
-      <small class="muted"><span id="xp">0</span> / <span id="xpNext">100</span> EXP para subir</small>
-      <div class="section-title">ACCIONES RÁPIDAS</div>
-      <button class="action-btn primary" id="buildBtn"><span>＋</span><div><b>Construir / comprar</b><small>Amplía tu equipamiento</small></div><kbd>B</kbd></button>
-      <button class="action-btn" id="marketingBtn"><span>↗</span><div><b>Campaña publicitaria</b><small>Atrae nuevos miembros</small></div><kbd>M</kbd></button>
-      <button class="action-btn" id="cleanBtn"><span>✦</span><div><b>Limpiar gimnasio</b><small>Mejora la satisfacción</small></div><kbd>C</kbd></button>
-      <div class="section-title">ESTADO DEL NEGOCIO</div>
-      <div class="business-row"><span>⭐ Satisfacción</span><b id="satisfaction">82%</b></div>
-      <div class="mini-progress"><div id="satisfactionBar"></div></div>
-      <div class="business-row"><span>🏋 Equipamiento</span><b id="equipmentCount">3</b></div>
-      <div class="business-row"><span>👥 Clientes hoy</span><b id="todayClients">0</b></div>
-      <div class="business-row"><span>🧹 Limpieza</span><b id="cleanliness">100%</b></div>
-      <div class="tip"><b>CONSEJO DEL ENTRENADOR</b><p id="tipText">Compra más máquinas para aumentar la capacidad y atraer clientes.</p></div>
-    </aside>
-
-    <aside class="right-panel glass">
-      <div class="panel-heading"><div><small>VISTA DEL JUGADOR</small><h2>Control</h2></div><span class="key-icon">⌨</span></div>
-      <div class="control-line"><span class="keycap">W</span><span class="keycap">A</span><span class="keycap">S</span><span class="keycap">D</span><span>Moverte</span></div>
-      <div class="control-line"><span class="keycap">MOUSE</span><span>Mirar alrededor</span></div>
-      <div class="control-line"><span class="keycap">E</span><span>Interactuar</span></div>
-      <div class="control-line"><span class="keycap">B</span><span>Abrir tienda</span></div>
-      <div class="control-line"><span class="keycap">SHIFT</span><span>Correr</span></div>
-      <div class="divider"></div>
-      <div class="section-title">OBJETIVO ACTUAL</div>
-      <div class="quest-card"><div class="quest-icon">🏆</div><div><b id="questTitle">Empieza tu negocio</b><p id="questDesc">Consigue 5 miembros para desbloquear el siguiente objetivo.</p><div class="quest-progress"><div id="questBar"></div></div></div></div>
-      <div class="divider"></div>
-      <button id="saveBtn" class="action-btn"><span>💾</span><div><b>Guardar partida</b><small>Se guarda en este navegador</small></div></button>
-      <button id="resetBtn" class="action-btn danger"><span>↻</span><div><b>Reiniciar partida</b><small>Empieza desde cero</small></div></button>
-    </aside>
-
-    <div id="crosshair"><span></span><span></span></div>
-    <div id="prompt" class="glass">Pulsa <b>E</b> para interactuar</div>
-    <div id="toast"></div>
-    <div class="bottom-hint"><span class="green-dot"></span> GIMNASIO ABIERTO <span class="hint-separator">•</span> <span id="clock">DÍA 1 · 08:00</span></div>
-    <div class="bottom-controls"><span>WASD MOVER</span><span>MOUSE MIRAR</span><span>E INTERACTUAR</span></div>
-  </div>
-
-  <div id="shopModal" class="modal hidden">
-    <div class="modal-card glass">
-      <div class="modal-top"><div><small>HAZ CRECER TU NEGOCIO</small><h2>Tienda de equipamiento</h2></div><button class="close-btn" data-close="shopModal">✕</button></div>
-      <p class="modal-desc">Compra máquinas y servicios para mejorar la experiencia de tus clientes.</p>
-      <div class="shop-grid" id="shopItems"></div>
-      <div class="modal-footer"><span>Tu saldo: <b id="shopMoney">$500</b></span><button class="secondary-btn" data-close="shopModal">Seguir jugando</button></div>
+<div id="boot"><div class="boot-logo">GT<span>3D</span></div><div class="bootbar"><i></i></div><h2>PREPARANDO TU IMPERIO</h2><p>Cargando el gimnasio...</p></div>
+<main id="app" class="hidden">
+  <canvas id="gameCanvas"></canvas>
+  <header class="hud-top">
+    <button class="brand" id="brandHome"><span class="brand-mark">GT</span><span><b>GYM TYCOON <em>3D</em></b><small>FITNESS EMPIRE</small></span></button>
+    <div class="top-stats">
+      <div class="top-stat"><small>DINERO</small><b id="money">$1,250</b></div>
+      <div class="top-stat"><small>SOCIOS</small><b id="members">8</b></div>
+      <div class="top-stat"><small>REPUTACIÓN</small><b id="reputation">★ 1.0</b></div>
+      <div class="top-stat"><small>INGRESOS / DÍA</small><b id="dailyIncome">$24</b></div>
     </div>
-  </div>
-  <div id="menuModal" class="modal hidden">
-    <div class="modal-card small-modal glass">
-      <div class="modal-top"><div><small>GYM TYCOON 3D</small><h2>Menú del juego</h2></div><button class="close-btn" data-close="menuModal">✕</button></div>
-      <button class="menu-option" id="resumeBtn">▶ Continuar jugando</button>
-      <button class="menu-option" id="menuSaveBtn">💾 Guardar partida</button>
-      <button class="menu-option" id="menuShopBtn">🏋 Tienda de equipamiento</button>
-      <p class="muted tiny">Consejo: usa auriculares y juega en pantalla completa para una mejor experiencia.</p>
+    <div class="top-actions"><button class="square-btn" id="soundBtn" title="Sonido">♫</button><button class="square-btn" id="pauseBtn" title="Pausa">Ⅱ</button></div>
+  </header>
+  <aside class="left-hud panel">
+    <div class="panel-head"><div><span class="eyebrow">CENTRO DE CONTROL</span><h2>Mi gimnasio</h2></div><span class="live-pill">● ABIERTO</span></div>
+    <div class="level-card"><div class="level-line"><span>NIVEL <b id="level">1</b></span><span id="xpLabel">0 / 100 EXP</span></div><div class="bar"><i id="xpBar"></i></div></div>
+    <div class="quick-grid">
+      <button class="quick-action active" data-tab="overview"><span>⌂</span>Resumen</button>
+      <button class="quick-action" data-tab="build"><span>＋</span>Construir</button>
+      <button class="quick-action" data-tab="staff"><span>♟</span>Personal</button>
+      <button class="quick-action" data-tab="finance"><span>＄</span>Finanzas</button>
     </div>
-  </div>
-  <div id="interactModal" class="modal hidden">
-    <div class="modal-card small-modal glass">
-      <div class="modal-top"><div><small>INTERACCIÓN</small><h2 id="interactTitle">Equipo de gimnasio</h2></div><button class="close-btn" data-close="interactModal">✕</button></div>
-      <p id="interactText">Este equipo ayuda a tus clientes a entrenar.</p>
-      <div id="interactActions"></div>
-    </div>
-  </div>
+    <div id="leftContent"></div>
+    <div class="panel-bottom"><button class="wide-btn" id="saveBtn">▣ Guardar partida</button><button class="wide-btn ghost" id="helpBtn">? Controles y ayuda</button></div>
+  </aside>
+  <aside class="right-hud panel">
+    <div class="panel-head"><div><span class="eyebrow">NAVEGACIÓN</span><h2>Mapa del gimnasio</h2></div><button id="mapExpand" class="tiny-btn">↗</button></div>
+    <canvas id="minimap" width="300" height="220"></canvas>
+    <div class="map-legend"><span><i class="legend-dot player-dot"></i>Tú</span><span><i class="legend-dot npc-dot"></i>Socios</span><span><i class="legend-dot machine-dot"></i>Máquinas</span></div>
+    <div class="divider"></div>
+    <div class="section-head"><b>OBJETIVO ACTUAL</b><span class="gold">◆</span></div>
+    <div class="quest"><div class="quest-icon">🏆</div><div class="quest-info"><b id="questTitle">Consigue 10 socios</b><p id="questDesc">Atrae clientes y mejora el gimnasio.</p><div class="bar"><i id="questBar"></i></div></div></div>
+    <div class="divider"></div>
+    <div class="section-head"><b>ESTADO DEL LOCAL</b><span class="eyebrow">EN TIEMPO REAL</span></div>
+    <div class="meter-row"><span>☺ Satisfacción</span><b id="satisfaction">86%</b></div><div class="thinbar"><i id="satisfactionBar"></i></div>
+    <div class="meter-row"><span>✦ Limpieza</span><b id="cleanliness">100%</b></div><div class="thinbar"><i id="cleanlinessBar"></i></div>
+    <div class="meter-row"><span>⚡ Energía</span><b id="energy">100%</b></div><div class="thinbar"><i id="energyBar"></i></div>
+    <div class="mini-feed" id="eventFeed"><div class="feed-item"><span class="feed-icon">✦</span><span>¡Tu gimnasio está abierto!</span><time>ahora</time></div></div>
+  </aside>
+  <div class="crosshair" id="crosshair"><i></i><i></i></div>
+  <div id="interactionPrompt" class="interaction-prompt hidden"><kbd>E</kbd><span id="promptText">Interactuar</span></div>
+  <div class="bottom-left"><span class="status-dot"></span><b>GYM ABIERTO</b><span class="sep">/</span><span id="gameTime">DÍA 1 · 08:00</span><span class="sep">/</span><span id="weather">☀ Soleado</span></div>
+  <div class="bottom-center" id="bottomControls"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> MOVER</span><span><kbd>SHIFT</kbd> CORRER</span><span><kbd>E</kbd> INTERACTUAR</span><span><kbd>V</kbd> CAMBIAR VISTA</span></div>
+  <div class="right-shortcuts"><button data-open="shopModal"><span>🛒</span><b>Tienda</b><kbd>B</kbd></button><button data-open="missionsModal"><span>🎯</span><b>Misiones</b><kbd>J</kbd></button><button data-open="mapModal"><span>🗺</span><b>Mapa</b><kbd>N</kbd></button></div>
+  <div id="toast" class="toast"></div>
+</main>
 
-  <script type="module" src="game.js"></script>
-</body>
-</html>
+<div id="shopModal" class="modal hidden"><div class="modal-card wide"><div class="modal-heading"><div><span class="eyebrow">MEJORA TUS INSTALACIONES</span><h2>Tienda de equipamiento</h2><p>Compra nuevas máquinas para mejorar la capacidad, satisfacción y reputación.</p></div><button class="close" data-close="shopModal">×</button></div><div class="tabs" id="shopTabs"><button class="selected" data-category="all">Todo</button><button data-category="strength">Fuerza</button><button data-category="cardio">Cardio</button><button data-category="comfort">Servicios</button></div><div id="shopGrid" class="shop-grid"></div><div class="modal-footer"><span>Saldo disponible: <b id="shopBalance">$1,250</b></span><button class="primary-btn" data-close="shopModal">Volver al gimnasio</button></div></div></div>
+<div id="mapModal" class="modal hidden"><div class="modal-card map-modal"><div class="modal-heading"><div><span class="eyebrow">PLANO DEL ESTABLECIMIENTO</span><h2>Mapa completo</h2></div><button class="close" data-close="mapModal">×</button></div><canvas id="bigMap" width="850" height="560"></canvas><p class="muted">El punto violeta indica tu posición. Los puntos verdes son socios y los cuadrados son máquinas.</p></div></div>
+<div id="missionsModal" class="modal hidden"><div class="modal-card small"><div class="modal-heading"><div><span class="eyebrow">PROGRESO</span><h2>Misiones y logros</h2></div><button class="close" data-close="missionsModal">×</button></div><div id="missionsList"></div></div></div>
+<div id="staffModal" class="modal hidden"><div class="modal-card small"><div class="modal-heading"><div><span class="eyebrow">TU EQUIPO</span><h2>Contratar personal</h2></div><button class="close" data-close="staffModal">×</button></div><div id="staffGrid"></div></div></div>
+<div id="pauseModal" class="modal hidden"><div class="modal-card small pause-card"><div class="brand-mark big">GT</div><span class="eyebrow">FITNESS EMPIRE</span><h2>Juego en pausa</h2><p class="muted">Tómate un descanso, tu gimnasio te espera.</p><button id="resumeBtn" class="primary-btn full">▶ Continuar</button><button id="pauseSaveBtn" class="secondary-btn full">▣ Guardar partida</button><button id="pauseSettingsBtn" class="secondary-btn full">⚙ Ajustes y controles</button></div></div>
+<div id="helpModal" class="modal hidden"><div class="modal-card small"><div class="modal-heading"><div><span class="eyebrow">GUÍA DEL JUGADOR</span><h2>Controles</h2></div><button class="close" data-close="helpModal">×</button></div><div class="help-list"><div><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>Caminar</span></div><div><kbd>SHIFT</kbd><span>Correr</span></div><div><kbd>MOUSE</kbd><span>Mirar alrededor</span></div><div><kbd>E</kbd><span>Interactuar con objetos y socios</span></div><div><kbd>B</kbd><span>Abrir tienda</span></div><div><kbd>N</kbd><span>Abrir mapa grande</span></div><div><kbd>J</kbd><span>Ver misiones</span></div><div><kbd>V</kbd><span>Cambiar primera / tercera persona</span></div><div><kbd>ESC</kbd><span>Pausar o liberar el ratón</span></div></div><p class="muted">Haz clic dentro del escenario para capturar el ratón. En móvil puedes usar los controles táctiles.</p></div></div>
+<div id="confirmModal" class="modal hidden"><div class="modal-card small"><div class="modal-heading"><div><span class="eyebrow">PARTIDA</span><h2>Reiniciar gimnasio</h2></div><button class="close" data-close="confirmModal">×</button></div><p>Esto borrará tu progreso guardado. ¿Quieres empezar de cero?</p><button id="confirmReset" class="danger-btn full">Sí, reiniciar</button><button class="secondary-btn full" data-close="confirmModal">Cancelar</button></div></div>
+<script type="module" src="game.js"></script>
+</body></html>
