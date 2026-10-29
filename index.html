@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>GYM TYCOON 3D</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="loading"><div class="loader"></div><h1>GYM TYCOON 3D</h1><p>Preparando tu gimnasio...</p></div>
+  <div id="game">
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon">▰</span><div><strong>GYM TYCOON</strong><small>CONSTRUYE TU IMPERIO</small></div></div>
+      <div class="stats">
+        <div class="stat"><span>DINERO</span><b id="money">$500</b></div>
+        <div class="stat"><span>MIEMBROS</span><b id="members">0</b></div>
+        <div class="stat"><span>REPUTACIÓN</span><b id="rep">★ 1</b></div>
+        <div class="stat"><span>INGRESOS / DÍA</span><b id="income">$0</b></div>
+      </div>
+      <button id="menuBtn" class="icon-btn" title="Menú">☰</button>
+    </header>
+
+    <aside class="left-panel glass">
+      <div class="panel-heading"><div><small>ADMINISTRACIÓN</small><h2>Tu gimnasio</h2></div><span class="pulse"></span></div>
+      <div class="level-row"><span>Nivel del gimnasio</span><b id="level">1</b></div>
+      <div class="progress"><div id="xpBar"></div></div>
+      <small class="muted"><span id="xp">0</span> / <span id="xpNext">100</span> EXP para subir</small>
+      <div class="section-title">ACCIONES RÁPIDAS</div>
+      <button class="action-btn primary" id="buildBtn"><span>＋</span><div><b>Construir / comprar</b><small>Amplía tu equipamiento</small></div><kbd>B</kbd></button>
+      <button class="action-btn" id="marketingBtn"><span>↗</span><div><b>Campaña publicitaria</b><small>Atrae nuevos miembros</small></div><kbd>M</kbd></button>
+      <button class="action-btn" id="cleanBtn"><span>✦</span><div><b>Limpiar gimnasio</b><small>Mejora la satisfacción</small></div><kbd>C</kbd></button>
+      <div class="section-title">ESTADO DEL NEGOCIO</div>
+      <div class="business-row"><span>⭐ Satisfacción</span><b id="satisfaction">82%</b></div>
+      <div class="mini-progress"><div id="satisfactionBar"></div></div>
+      <div class="business-row"><span>🏋 Equipamiento</span><b id="equipmentCount">3</b></div>
+      <div class="business-row"><span>👥 Clientes hoy</span><b id="todayClients">0</b></div>
+      <div class="business-row"><span>🧹 Limpieza</span><b id="cleanliness">100%</b></div>
+      <div class="tip"><b>CONSEJO DEL ENTRENADOR</b><p id="tipText">Compra más máquinas para aumentar la capacidad y atraer clientes.</p></div>
+    </aside>
+
+    <aside class="right-panel glass">
+      <div class="panel-heading"><div><small>VISTA DEL JUGADOR</small><h2>Control</h2></div><span class="key-icon">⌨</span></div>
+      <div class="control-line"><span class="keycap">W</span><span class="keycap">A</span><span class="keycap">S</span><span class="keycap">D</span><span>Moverte</span></div>
+      <div class="control-line"><span class="keycap">MOUSE</span><span>Mirar alrededor</span></div>
+      <div class="control-line"><span class="keycap">E</span><span>Interactuar</span></div>
+      <div class="control-line"><span class="keycap">B</span><span>Abrir tienda</span></div>
+      <div class="control-line"><span class="keycap">SHIFT</span><span>Correr</span></div>
+      <div class="divider"></div>
+      <div class="section-title">OBJETIVO ACTUAL</div>
+      <div class="quest-card"><div class="quest-icon">🏆</div><div><b id="questTitle">Empieza tu negocio</b><p id="questDesc">Consigue 5 miembros para desbloquear el siguiente objetivo.</p><div class="quest-progress"><div id="questBar"></div></div></div></div>
+      <div class="divider"></div>
+      <button id="saveBtn" class="action-btn"><span>💾</span><div><b>Guardar partida</b><small>Se guarda en este navegador</small></div></button>
+      <button id="resetBtn" class="action-btn danger"><span>↻</span><div><b>Reiniciar partida</b><small>Empieza desde cero</small></div></button>
+    </aside>
+
+    <div id="crosshair"><span></span><span></span></div>
+    <div id="prompt" class="glass">Pulsa <b>E</b> para interactuar</div>
+    <div id="toast"></div>
+    <div class="bottom-hint"><span class="green-dot"></span> GIMNASIO ABIERTO <span class="hint-separator">•</span> <span id="clock">DÍA 1 · 08:00</span></div>
+    <div class="bottom-controls"><span>WASD MOVER</span><span>MOUSE MIRAR</span><span>E INTERACTUAR</span></div>
+  </div>
+
+  <div id="shopModal" class="modal hidden">
+    <div class="modal-card glass">
+      <div class="modal-top"><div><small>HAZ CRECER TU NEGOCIO</small><h2>Tienda de equipamiento</h2></div><button class="close-btn" data-close="shopModal">✕</button></div>
+      <p class="modal-desc">Compra máquinas y servicios para mejorar la experiencia de tus clientes.</p>
+      <div class="shop-grid" id="shopItems"></div>
+      <div class="modal-footer"><span>Tu saldo: <b id="shopMoney">$500</b></span><button class="secondary-btn" data-close="shopModal">Seguir jugando</button></div>
+    </div>
+  </div>
+  <div id="menuModal" class="modal hidden">
+    <div class="modal-card small-modal glass">
+      <div class="modal-top"><div><small>GYM TYCOON 3D</small><h2>Menú del juego</h2></div><button class="close-btn" data-close="menuModal">✕</button></div>
+      <button class="menu-option" id="resumeBtn">▶ Continuar jugando</button>
+      <button class="menu-option" id="menuSaveBtn">💾 Guardar partida</button>
+      <button class="menu-option" id="menuShopBtn">🏋 Tienda de equipamiento</button>
+      <p class="muted tiny">Consejo: usa auriculares y juega en pantalla completa para una mejor experiencia.</p>
+    </div>
+  </div>
+  <div id="interactModal" class="modal hidden">
+    <div class="modal-card small-modal glass">
+      <div class="modal-top"><div><small>INTERACCIÓN</small><h2 id="interactTitle">Equipo de gimnasio</h2></div><button class="close-btn" data-close="interactModal">✕</button></div>
+      <p id="interactText">Este equipo ayuda a tus clientes a entrenar.</p>
+      <div id="interactActions"></div>
+    </div>
+  </div>
+
+  <script type="module" src="game.js"></script>
+</body>
+</html>
